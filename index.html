@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Purpose Notes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body style="
+margin:0;
+background:linear-gradient(180deg,#fffdf9,#f6efe4);
+font-family:'Playfair Display', serif;
+text-align:center;
+color:#3b2a1a;
+">
+
+<!-- HEADER -->
+<img src="header.png" alt="Purpose Notes"
+style="width:100%; max-width:900px; display:block; margin:auto;">
+
+<!-- VIDEO -->
+<div style="max-width:420px; margin:26px auto; padding:0 14px;">
+<video controls style="
+width:100%;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+">
+<source src="video.mp4" type="video/mp4">
+</video>
+</div>
+
+<!-- SCRIPTURE CARD -->
+<div style="
+max-width:420px;
+margin:30px auto 40px;
+padding:28px;
+background:linear-gradient(135deg,#fff3c4,#f4d27a);
+border-radius:26px;
+box-shadow:
+0 18px 40px rgba(0,0,0,0.2),
+inset 0 0 30px rgba(255,255,255,0.4);
+">
+
+<h2 style="
+font-family:'Great Vibes', cursive;
+font-size:36px;
+color:#8a5200;
+margin-bottom:18px;
+">
+Today’s Purpose Scripture
+</h2>
+
+<p id="scriptureText" style="font-size:18px; line-height:1.7;"></p>
+<p id="scriptureRef" style="font-weight:600; text-align:right;"></p>
+
+<!-- PURPOSE REFLECTION -->
+<button onclick="toggleReflection()" style="
+margin-top:22px;
+padding:12px 26px;
+border:none;
+border-radius:30px;
+background:#8a5200;
+color:white;
+font-family:'Great Vibes', cursive;
+font-size:22px;
+cursor:pointer;
+box-shadow:0 6px 14px rgba(0,0,0,0.25);
+">
+Purpose Reflection
+</button>
+
+<div id="reflectionBox" style="
+display:none;
+margin-top:18px;
+padding:18px;
+background:rgba(255,255,255,0.65);
+border-radius:18px;
+"></div>
+
+<!-- PURPOSE STEP -->
+<button onclick="toggleStep()" style="
+margin-top:22px;
+padding:12px 26px;
+border:none;
+border-radius:30px;
+background:#8a5200;
+color:white;
+font-family:'Great Vibes', cursive;
+font-size:22px;
+cursor:pointer;
+box-shadow:0 6px 14px rgba(0,0,0,0.25);
+">
+Purpose Step
+</button>
+
+<div id="stepBox" style="
+display:none;
+margin-top:18px;
+padding:18px;
+background:rgba(255,255,255,0.6);
+border-radius:18px;
+"></div>
+
+<!-- CONNECT -->
+<button onclick="toggleConnect()" style="
+margin-top:26px;
+padding:12px 28px;
+border:none;
+border-radius:30px;
+background:#8a5200;
+color:white;
+font-family:'Great Vibes', cursive;
+font-size:22px;
+cursor:pointer;
+box-shadow:0 6px 14px rgba(0,0,0,0.25);
+">
+Connect
+</button>
+
+<div id="connectBox" style="
+display:none;
+margin-top:20px;
+padding:18px;
+background:rgba(255,255,255,0.7);
+border-radius:18px;
+">
+
+<form action="mailto:wopurposegh@gmail.com" method="post" enctype="text/plain">
+
+<input type="text" name="Name" placeholder="Your Name" required
+style="width:100%; padding:10px; margin-bottom:10px;
+border-radius:10px; border:1px solid #caa85c;
+font-family:'Playfair Display', serif;">
+
+<input type="text" name="Country" placeholder="Your Country" required
+style="width:100%; padding:10px; margin-bottom:10px;
+border-radius:10px; border:1px solid #caa85c;
+font-family:'Playfair Display', serif;">
+
+<textarea name="Message" placeholder="Your message or request" required
+style="width:100%; padding:10px; height:90px;
+border-radius:10px; border:1px solid #caa85c;
+font-family:'Playfair Display', serif;"></textarea>
+
+<button type="submit" style="
+margin-top:12px;
+padding:10px 22px;
+border:none;
+border-radius:24px;
+background:#8a5200;
+color:white;
+font-family:'Great Vibes', cursive;
+font-size:20px;
+cursor:pointer;
+">
+Send
+</button>
+
+</form>
+</div>
+
+<!-- PRAYER REQUEST -->
+<button onclick="togglePrayer()" style="
+margin-top:22px;
+padding:12px 28px;
+border:none;
+border-radius:30px;
+background:#8a5200;
+color:white;
+font-family:'Great Vibes', cursive;
+font-size:22px;
+cursor:pointer;
+box-shadow:0 6px 14px rgba(0,0,0,0.25);
+">
+Prayer Request
+</button>
+
+<div id="prayerBox" style="
+display:none;
+margin-top:20px;
+padding:18px;
+background:rgba(255,255,255,0.7);
+border-radius:18px;
+">
+
+<form action="mailto:wopurposegh@gmail.com" method="post" enctype="text/plain">
+
+<input type="text" name="Name" placeholder="Your Name" required
+style="width:100%; padding:10px; margin-bottom:10px;
+border-radius:10px; border:1px solid #caa85c;
+font-family:'Playfair Display', serif;">
+
+<input type="text" name="Country" placeholder="Your Country" required
+style="width:100%; padding:10px; margin-bottom:10px;
+border-radius:10px; border:1px solid #caa85c;
+font-family:'Playfair Display', serif;">
+
+<textarea name="Prayer Request" placeholder="Your prayer request" required
+style="width:100%; padding:10px; height:90px;
+border-radius:10px; border:1px solid #caa85c;
+font-family:'Playfair Display', serif;"></textarea>
+
+<button type="submit" style="
+margin-top:12px;
+padding:10px 22px;
+border:none;
+border-radius:24px;
+background:#8a5200;
+color:white;
+font-family:'Great Vibes', cursive;
+font-size:20px;
+cursor:pointer;
+">
+Send Prayer Request
+</button>
+
+</form>
+</div>
+
+</div>
+
+<!-- FOLLOW -->
+<div style="margin:40px auto 20px; max-width:420px;">
+<p style="font-size:14px; letter-spacing:1px; font-weight:600; color:#8a5200;">
+CLICK • FOLLOW • LIKE • SHARE • SUBSCRIBE
+</p>
+
+<div style="display:flex; justify-content:center; gap:20px;">
+<a href="https://www.facebook.com/profile.php?id=61586537526786" target="_blank"><img src="facebook.png" style="width:36px;"></a>
+<a href="https://www.instagram.com/womenofpurposeg/" target="_blank"><img src="instagram.png" style="width:36px;"></a>
+<a href="https://www.tiktok.com/@womenofpurpose" target="_blank"><img src="tiktok.png" style="width:36px;"></a>
+<a href="https://www.youtube.com/@WomenofPurposeGlobal" target="_blank"><img src="youtube.png" style="width:36px;"></a>
+</div>
+</div>
+
+<!-- LOGO -->
+<div style="margin:40px auto 60px;">
+<img src="logo.png" alt="Women of Purpose" style="width:180px;">
+</div>
+
+<script>
+const content=[
+{s:"For we are God’s handiwork, created in Christ Jesus to do good works.",r:"Ephesians 2:10",q:"What good work has God already placed in your hands?",step:"Do one intentional act today that reflects God’s purpose."}
+];
+
+const t=content[new Date().getDate()%content.length];
+scriptureText.innerText="“"+t.s+"”";
+scriptureRef.innerText="— "+t.r;
+reflectionBox.innerText=t.q;
+stepBox.innerText=t.step;
+
+function toggleReflection(){reflectionBox.style.display=reflectionBox.style.display==="none"?"block":"none";}
+function toggleStep(){stepBox.style.display=stepBox.style.display==="none"?"block":"none";}
+function toggleConnect(){connectBox.style.display=connectBox.style.display==="none"?"block":"none";}
+function togglePrayer(){prayerBox.style.display=prayerBox.style.display==="none"?"block":"none";}
+</script>
+
+</body>
+</html>
