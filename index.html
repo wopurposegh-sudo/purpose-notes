@@ -5,256 +5,169 @@
 <title>Purpose Notes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  background: linear-gradient(to bottom, #f7efe3, #f2e4cf);
+  color: #5a3e2b;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+img.header {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #8b6b3f;
+  font-size: 28px;
+}
+
+.card {
+  background: #f6e7c9;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+h2 {
+  color: #8b6b3f;
+  font-weight: normal;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+button {
+  background: #caa24d;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  font-family: "Brush Script MT", cursive;
+  color: #5a3e2b;
+  margin-top: 10px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+form {
+  margin-top: 15px;
+}
+
+input, textarea {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: 1px solid #cbb89d;
+  font-family: Georgia, serif;
+}
+
+.socials img {
+  width: 40px;
+  margin: 10px;
+  vertical-align: middle;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-top: 30px;
+}
+</style>
 </head>
 
-<body style="
-margin:0;
-background:linear-gradient(180deg,#fffdf9,#f6efe4);
-font-family:'Playfair Display', serif;
-text-align:center;
-color:#3b2a1a;
-">
+<body>
 
-<!-- HEADER -->
-<img src="header.png" alt="Purpose Notes"
-style="width:100%; max-width:900px; display:block; margin:auto;">
+<div class="container">
 
-<!-- VIDEO -->
-<div style="max-width:420px; margin:26px auto; padding:0 14px;">
-<video controls style="
-width:100%;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-">
-<source src="video.mp4" type="video/mp4">
-</video>
+<img src="header.png" class="header" alt="Purpose Notes">
+
+<h1>Purpose Notes</h1>
+
+<div class="card">
+<h2>Today’s Purpose Scripture</h2>
+<p id="scripture"></p>
 </div>
 
-<!-- SCRIPTURE CARD -->
-<div style="
-max-width:420px;
-margin:30px auto 40px;
-padding:28px;
-background:linear-gradient(135deg,#fff3c4,#f4d27a);
-border-radius:26px;
-box-shadow:
-0 18px 40px rgba(0,0,0,0.2),
-inset 0 0 30px rgba(255,255,255,0.4);
-">
+<div class="card">
+<h2>Daily Reflection</h2>
+<p id="reflection"></p>
+<button onclick="alert(step)">Purpose Step</button>
+</div>
 
-<h2 style="
-font-family:'Great Vibes', cursive;
-font-size:36px;
-color:#8a5200;
-margin-bottom:18px;
-">
-Today’s Purpose Scripture
-</h2>
-
-<p id="scriptureText" style="font-size:18px; line-height:1.7;"></p>
-<p id="scriptureRef" style="font-weight:600; text-align:right;"></p>
-
-<!-- PURPOSE REFLECTION -->
-<button onclick="toggleReflection()" style="
-margin-top:22px;
-padding:12px 26px;
-border:none;
-border-radius:30px;
-background:#8a5200;
-color:white;
-font-family:'Great Vibes', cursive;
-font-size:22px;
-cursor:pointer;
-box-shadow:0 6px 14px rgba(0,0,0,0.25);
-">
-Purpose Reflection
-</button>
-
-<div id="reflectionBox" style="
-display:none;
-margin-top:18px;
-padding:18px;
-background:rgba(255,255,255,0.65);
-border-radius:18px;
-"></div>
-
-<!-- PURPOSE STEP -->
-<button onclick="toggleStep()" style="
-margin-top:22px;
-padding:12px 26px;
-border:none;
-border-radius:30px;
-background:#8a5200;
-color:white;
-font-family:'Great Vibes', cursive;
-font-size:22px;
-cursor:pointer;
-box-shadow:0 6px 14px rgba(0,0,0,0.25);
-">
-Purpose Step
-</button>
-
-<div id="stepBox" style="
-display:none;
-margin-top:18px;
-padding:18px;
-background:rgba(255,255,255,0.6);
-border-radius:18px;
-"></div>
-
-<!-- CONNECT -->
-<button onclick="toggleConnect()" style="
-margin-top:26px;
-padding:12px 28px;
-border:none;
-border-radius:30px;
-background:#8a5200;
-color:white;
-font-family:'Great Vibes', cursive;
-font-size:22px;
-cursor:pointer;
-box-shadow:0 6px 14px rgba(0,0,0,0.25);
-">
-Connect
-</button>
-
-<div id="connectBox" style="
-display:none;
-margin-top:20px;
-padding:18px;
-background:rgba(255,255,255,0.7);
-border-radius:18px;
-">
-
+<div class="card">
+<h2>Connect</h2>
 <form action="mailto:wopurposegh@gmail.com" method="post" enctype="text/plain">
-
-<input type="text" name="Name" placeholder="Your Name" required
-style="width:100%; padding:10px; margin-bottom:10px;
-border-radius:10px; border:1px solid #caa85c;
-font-family:'Playfair Display', serif;">
-
-<input type="text" name="Country" placeholder="Your Country" required
-style="width:100%; padding:10px; margin-bottom:10px;
-border-radius:10px; border:1px solid #caa85c;
-font-family:'Playfair Display', serif;">
-
-<textarea name="Message" placeholder="Your message or request" required
-style="width:100%; padding:10px; height:90px;
-border-radius:10px; border:1px solid #caa85c;
-font-family:'Playfair Display', serif;"></textarea>
-
-<button type="submit" style="
-margin-top:12px;
-padding:10px 22px;
-border:none;
-border-radius:24px;
-background:#8a5200;
-color:white;
-font-family:'Great Vibes', cursive;
-font-size:20px;
-cursor:pointer;
-">
-Send
-</button>
-
+<input type="text" name="Name" placeholder="Your Name" required>
+<input type="text" name="Country" placeholder="Your Country" required>
+<textarea name="Message" placeholder="Your Message or Question" rows="4"></textarea>
+<button type="submit">Send</button>
 </form>
 </div>
 
-<!-- PRAYER REQUEST -->
-<button onclick="togglePrayer()" style="
-margin-top:22px;
-padding:12px 28px;
-border:none;
-border-radius:30px;
-background:#8a5200;
-color:white;
-font-family:'Great Vibes', cursive;
-font-size:22px;
-cursor:pointer;
-box-shadow:0 6px 14px rgba(0,0,0,0.25);
-">
-Prayer Request
-</button>
-
-<div id="prayerBox" style="
-display:none;
-margin-top:20px;
-padding:18px;
-background:rgba(255,255,255,0.7);
-border-radius:18px;
-">
-
+<div class="card">
+<h2>Prayer Request</h2>
 <form action="mailto:wopurposegh@gmail.com" method="post" enctype="text/plain">
-
-<input type="text" name="Name" placeholder="Your Name" required
-style="width:100%; padding:10px; margin-bottom:10px;
-border-radius:10px; border:1px solid #caa85c;
-font-family:'Playfair Display', serif;">
-
-<input type="text" name="Country" placeholder="Your Country" required
-style="width:100%; padding:10px; margin-bottom:10px;
-border-radius:10px; border:1px solid #caa85c;
-font-family:'Playfair Display', serif;">
-
-<textarea name="Prayer Request" placeholder="Your prayer request" required
-style="width:100%; padding:10px; height:90px;
-border-radius:10px; border:1px solid #caa85c;
-font-family:'Playfair Display', serif;"></textarea>
-
-<button type="submit" style="
-margin-top:12px;
-padding:10px 22px;
-border:none;
-border-radius:24px;
-background:#8a5200;
-color:white;
-font-family:'Great Vibes', cursive;
-font-size:20px;
-cursor:pointer;
-">
-Send Prayer Request
-</button>
-
+<input type="text" name="Name" placeholder="Your Name" required>
+<input type="text" name="Country" placeholder="Your Country" required>
+<textarea name="Prayer Request" placeholder="Your Prayer Request" rows="4"></textarea>
+<button type="submit">Send Prayer Request</button>
 </form>
 </div>
 
+<p>CLICK • FOLLOW • LIKE • SHARE • SUBSCRIBE</p>
+
+<div class="socials">
+<a href="https://www.facebook.com/profile.php?id=61586537526786"><img src="facebook.png"></a>
+<a href="https://www.instagram.com/womenofpurposeg/"><img src="instagram.png"></a>
+<a href="https://www.tiktok.com/@womenofpurpose"><img src="tiktok.png"></a>
+<a href="https://www.youtube.com/@WomenofPurposeGlobal"><img src="youtube.png"></a>
 </div>
 
-<!-- FOLLOW -->
-<div style="margin:40px auto 20px; max-width:420px;">
-<p style="font-size:14px; letter-spacing:1px; font-weight:600; color:#8a5200;">
-CLICK • FOLLOW • LIKE • SHARE • SUBSCRIBE
-</p>
+<img src="logo.png" class="footer-logo" alt="Women of Purpose">
 
-<div style="display:flex; justify-content:center; gap:20px;">
-<a href="https://www.facebook.com/profile.php?id=61586537526786" target="_blank"><img src="facebook.png" style="width:36px;"></a>
-<a href="https://www.instagram.com/womenofpurposeg/" target="_blank"><img src="instagram.png" style="width:36px;"></a>
-<a href="https://www.tiktok.com/@womenofpurpose" target="_blank"><img src="tiktok.png" style="width:36px;"></a>
-<a href="https://www.youtube.com/@WomenofPurposeGlobal" target="_blank"><img src="youtube.png" style="width:36px;"></a>
-</div>
-</div>
-
-<!-- LOGO -->
-<div style="margin:40px auto 60px;">
-<img src="logo.png" alt="Women of Purpose" style="width:180px;">
 </div>
 
 <script>
-const content=[
-{s:"For we are God’s handiwork, created in Christ Jesus to do good works.",r:"Ephesians 2:10",q:"What good work has God already placed in your hands?",step:"Do one intentional act today that reflects God’s purpose."}
+const days = [
+  {
+    scripture: "For we are God’s handiwork, created in Christ Jesus to do good works. — Ephesians 2:10",
+    reflection: "You were intentionally created by God. Today is not random — it holds purpose.",
+    step: "Ask God where He is inviting you to serve today."
+  },
+  {
+    scripture: "Trust in the Lord with all your heart. — Proverbs 3:5",
+    reflection: "Purpose grows when trust replaces fear.",
+    step: "Release one worry to God in prayer."
+  },
+  {
+    scripture: "Commit your work to the Lord. — Proverbs 16:3",
+    reflection: "God blesses surrendered plans.",
+    step: "Offer your plans to God today."
+  }
 ];
 
-const t=content[new Date().getDate()%content.length];
-scriptureText.innerText="“"+t.s+"”";
-scriptureRef.innerText="— "+t.r;
-reflectionBox.innerText=t.q;
-stepBox.innerText=t.step;
+// rotates for 3 months (30-day loop pattern)
+const today = new Date().getDate() % days.length;
+const scripture = days[today];
 
-function toggleReflection(){reflectionBox.style.display=reflectionBox.style.display==="none"?"block":"none";}
-function toggleStep(){stepBox.style.display=stepBox.style.display==="none"?"block":"none";}
-function toggleConnect(){connectBox.style.display=connectBox.style.display==="none"?"block":"none";}
-function togglePrayer(){prayerBox.style.display=prayerBox.style.display==="none"?"block":"none";}
+document.getElementById("scripture").innerText = scripture.scripture;
+document.getElementById("reflection").innerText = scripture.reflection;
+var step = scripture.step;
 </script>
 
 </body>
