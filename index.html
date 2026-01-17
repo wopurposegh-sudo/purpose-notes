@@ -2,172 +2,155 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Purpose Notes</title>
+<title>Women of Purpose – Purpose Notes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Elegant Cursive Font -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
-  font-family: "Georgia", serif;
-  background: linear-gradient(to bottom, #f7efe3, #f2e4cf);
-  color: #5a3e2b;
+  font-family: 'Poppins', sans-serif;
+  background: #0b0b0b;
+  color: #f5e6c8;
   text-align: center;
 }
 
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
+/* HEADER */
+header {
+  padding: 40px 20px;
+}
+header img {
+  max-width: 260px;
 }
 
-img.header {
-  width: 100%;
-  border-radius: 20px;
-  margin-bottom: 20px;
+/* HEADINGS */
+h1, h2 {
+  font-family: 'Playfair Display', cursive;
+  color: #d6b36a;
 }
 
-h1 {
-  color: #8b6b3f;
-  font-size: 28px;
-}
-
-.card {
-  background: #f6e7c9;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 20px 0;
-}
-
-h2 {
-  color: #8b6b3f;
-  font-weight: normal;
-}
-
-p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-button {
-  background: #caa24d;
+/* BUTTONS */
+.button {
+  background: #5a3b1e;
+  color: #d6b36a;
   border: none;
-  padding: 12px 25px;
+  padding: 14px 30px;
+  margin: 15px 0;
+  font-size: 20px;
+  font-family: 'Playfair Display', cursive;
   border-radius: 30px;
-  font-size: 18px;
   cursor: pointer;
-  font-family: "Brush Script MT", cursive;
-  color: #5a3e2b;
-  margin-top: 10px;
+}
+.button:hover {
+  background: #6e4a25;
 }
 
-button:hover {
-  opacity: 0.9;
+/* CARDS */
+.card {
+  background: #2a1a0f;
+  padding: 25px;
+  margin: 20px auto;
+  border-radius: 18px;
+  max-width: 600px;
 }
 
-form {
-  margin-top: 15px;
+/* HIDDEN SECTIONS */
+.hidden {
+  display: none;
 }
 
+/* INPUTS */
 input, textarea {
   width: 90%;
-  padding: 10px;
-  margin: 8px 0;
+  padding: 12px;
+  margin: 10px 0;
   border-radius: 10px;
-  border: 1px solid #cbb89d;
-  font-family: Georgia, serif;
+  border: none;
+  font-family: 'Poppins', sans-serif;
 }
 
-.socials img {
-  width: 40px;
-  margin: 10px;
-  vertical-align: middle;
+/* FOOTER */
+footer {
+  padding: 40px 20px;
 }
-
-.footer-logo {
-  width: 120px;
-  margin-top: 30px;
+.social-icons img {
+  width: 38px;
+  margin: 0 8px;
+}
+.small-text {
+  font-size: 14px;
+  margin-top: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<header>
+  <img src="logo.png" alt="Women of Purpose Logo">
+  <h1>Purpose Notes</h1>
+</header>
 
-<img src="header.png" class="header" alt="Purpose Notes">
+<!-- DAILY SCRIPTURE -->
+<div class="card">
+  <h2>Today's Scripture</h2>
+  <p><strong>Jeremiah 29:11</strong><br>
+  “For I know the plans I have for you,” declares the Lord…</p>
+</div>
 
-<h1>Purpose Notes</h1>
+<!-- PURPOSE STEP -->
+<button class="button">Purpose Step</button>
 
 <div class="card">
-<h2>Today’s Purpose Scripture</h2>
-<p id="scripture"></p>
+  <p>Take one intentional step today that aligns with who God has called you to be.</p>
 </div>
 
-<div class="card">
-<h2>Daily Reflection</h2>
-<p id="reflection"></p>
-<button onclick="alert(step)">Purpose Step</button>
+<!-- DAILY REFLECTION -->
+<button class="button" onclick="toggleSection('reflection')">Daily Reflection</button>
+<div id="reflection" class="card hidden">
+  <p>What gift has God placed inside you that you may be overlooking?</p>
 </div>
 
-<div class="card">
-<h2>Connect</h2>
-<form action="mailto:wopurposegh@gmail.com" method="post" enctype="text/plain">
-<input type="text" name="Name" placeholder="Your Name" required>
-<input type="text" name="Country" placeholder="Your Country" required>
-<textarea name="Message" placeholder="Your Message or Question" rows="4"></textarea>
-<button type="submit">Send</button>
-</form>
+<!-- CONNECT -->
+<button class="button" onclick="toggleSection('connect')">Connect</button>
+<div id="connect" class="card hidden">
+  <form action="mailto:wopurposegh@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="Name" placeholder="Your Name" required>
+    <input type="text" name="Country" placeholder="Your Country" required>
+    <textarea name="Message" placeholder="Your message or request" rows="4"></textarea>
+    <button class="button" type="submit">Send</button>
+  </form>
 </div>
 
-<div class="card">
-<h2>Prayer Request</h2>
-<form action="mailto:wopurposegh@gmail.com" method="post" enctype="text/plain">
-<input type="text" name="Name" placeholder="Your Name" required>
-<input type="text" name="Country" placeholder="Your Country" required>
-<textarea name="Prayer Request" placeholder="Your Prayer Request" rows="4"></textarea>
-<button type="submit">Send Prayer Request</button>
-</form>
+<!-- PRAYER REQUEST -->
+<button class="button" onclick="toggleSection('prayer')">Prayer Request</button>
+<div id="prayer" class="card hidden">
+  <form action="mailto:wopurposegh@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="Name" placeholder="Your Name" required>
+    <input type="text" name="Country" placeholder="Your Country" required>
+    <textarea name="Prayer Request" placeholder="Your prayer request" rows="4"></textarea>
+    <button class="button" type="submit">Send Prayer Request</button>
+  </form>
 </div>
 
-<p>CLICK • FOLLOW • LIKE • SHARE • SUBSCRIBE</p>
-
-<div class="socials">
-<a href="https://www.facebook.com/profile.php?id=61586537526786"><img src="facebook.png"></a>
-<a href="https://www.instagram.com/womenofpurposeg/"><img src="instagram.png"></a>
-<a href="https://www.tiktok.com/@womenofpurpose"><img src="tiktok.png"></a>
-<a href="https://www.youtube.com/@WomenofPurposeGlobal"><img src="youtube.png"></a>
-</div>
-
-<img src="logo.png" class="footer-logo" alt="Women of Purpose">
-
-</div>
+<footer>
+  <h2>CLICK · FOLLOW · LIKE · SHARE · SUBSCRIBE</h2>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=61586537526786" target="_blank"><img src="facebook.png"></a>
+    <a href="https://www.instagram.com/womenofpurposeg/" target="_blank"><img src="instagram.png"></a>
+    <a href="https://www.tiktok.com/@womenofpurpose" target="_blank"><img src="tiktok.png"></a>
+    <a href="https://www.youtube.com/@WomenofPurposeGlobal" target="_blank"><img src="youtube.png"></a>
+  </div>
+  <p class="small-text">© Women of Purpose Global</p>
+</footer>
 
 <script>
-const days = [
-  {
-    scripture: "For we are God’s handiwork, created in Christ Jesus to do good works. — Ephesians 2:10",
-    reflection: "You were intentionally created by God. Today is not random — it holds purpose.",
-    step: "Ask God where He is inviting you to serve today."
-  },
-  {
-    scripture: "Trust in the Lord with all your heart. — Proverbs 3:5",
-    reflection: "Purpose grows when trust replaces fear.",
-    step: "Release one worry to God in prayer."
-  },
-  {
-    scripture: "Commit your work to the Lord. — Proverbs 16:3",
-    reflection: "God blesses surrendered plans.",
-    step: "Offer your plans to God today."
-  }
-];
-
-// rotates for 3 months (30-day loop pattern)
-const today = new Date().getDate() % days.length;
-const scripture = days[today];
-
-document.getElementById("scripture").innerText = scripture.scripture;
-document.getElementById("reflection").innerText = scripture.reflection;
-var step = scripture.step;
+function toggleSection(id) {
+  const section = document.getElementById(id);
+  section.classList.toggle('hidden');
+}
 </script>
 
 </body>
