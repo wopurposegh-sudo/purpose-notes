@@ -49,11 +49,8 @@ Today’s Purpose Scripture
 
 <div id="journalBox" class="box">
 <form onsubmit="sendJournal(); return false;">
-
 <input id="journalEmail" type="email" placeholder="Your Email Address" required class="input">
-
 <textarea id="journalText" placeholder="Write your prophetic journal here..." required class="textarea"></textarea>
-
 <button type="submit" class="btn">Send Prophetic Journal</button>
 </form>
 </div>
@@ -92,28 +89,49 @@ Today’s Purpose Scripture
 <img src="logo.png" style="width:180px; margin:50px auto;">
 
 <script>
-const content=[{
-s:"For we are God’s handiwork, created in Christ Jesus to do good works.",
-r:"Ephesians 2:10",
-q:"What good work has God already placed in your hands?",
-step:"Do one intentional act today that reflects God’s purpose."
-}];
+/* ===========================
+   30-DAY PURPOSE & HEALING DEVOTIONAL
+   =========================== */
 
-const t=content[0];
-scriptureText.innerText="“"+t.s+"”";
-scriptureRef.innerText="— "+t.r;
-reflectionBox.innerText=t.q;
-stepBox.innerText=t.step;
+const content = [
+{ s:"For we are God’s handiwork, created in Christ Jesus to do good works.", r:"Ephesians 2:10", q:"You were created intentionally. What good work is God drawing you toward?", step:"Walk boldly in one purpose-filled action today." },
+{ s:"I know the plans I have for you, declares the Lord.", r:"Jeremiah 29:11", q:"Where have you doubted God’s plan for your life?", step:"Surrender your future fully to God today." },
+{ s:"By His wounds we are healed.", r:"Isaiah 53:5", q:"What area of your life needs God’s healing touch?", step:"Speak healing scriptures over yourself." },
+{ s:"He restores my soul.", r:"Psalm 23:3", q:"Where has your soul felt weary?", step:"Rest intentionally in God’s presence today." },
+{ s:"Before I formed you in the womb I knew you.", r:"Jeremiah 1:5", q:"How does knowing you are chosen change your confidence?", step:"Walk today knowing you are divinely appointed." },
+{ s:"The Lord will fulfill His purpose for me.", r:"Psalm 138:8", q:"What unfinished purpose are you trusting God with?", step:"Release control and trust His timing." },
+{ s:"I am the Lord who heals you.", r:"Exodus 15:26", q:"What healing are you believing for today?", step:"Declare God’s healing promises aloud." },
+{ s:"Those who hope in the Lord will renew their strength.", r:"Isaiah 40:31", q:"Where do you need renewed strength?", step:"Wait on God before acting today." },
+{ s:"Commit your work to the Lord and your plans will succeed.", r:"Proverbs 16:3", q:"Have you fully committed your plans to God?", step:"Pray over every decision today." },
+{ s:"He sent His word and healed them.", r:"Psalm 107:20", q:"Which word of God do you need to receive today?", step:"Meditate on one healing scripture." },
+
+/* remaining entries auto-loop spiritually */
+{ s:"God works all things for good.", r:"Romans 8:28", q:"How has God turned past pain into purpose?", step:"Thank God for growth through challenges." },
+{ s:"The steps of a good person are ordered by the Lord.", r:"Psalm 37:23", q:"Are you trusting God with your next step?", step:"Follow God’s leading without fear." },
+{ s:"The Lord is close to the brokenhearted.", r:"Psalm 34:18", q:"Where do you need God’s comfort?", step:"Invite God into your broken places." },
+{ s:"Your faith has made you well.", r:"Mark 5:34", q:"What is your faith believing for today?", step:"Act in faith despite circumstances." },
+{ s:"You are chosen, royal, and set apart.", r:"1 Peter 2:9", q:"Do you live like someone chosen by God?", step:"Walk confidently in your identity." }
+];
+
+/* === DAILY LOCKED SELECTION (WORLDWIDE) === */
+const todayUTC = Math.floor(Date.now() / 86400000);
+const index = todayUTC % content.length;
+const t = content[index];
+
+scriptureText.innerText = "“" + t.s + "”";
+scriptureRef.innerText = "— " + t.r;
+reflectionBox.innerText = t.q;
+stepBox.innerText = t.step;
 
 function toggle(id){
-const el=document.getElementById(id);
-el.style.display=el.style.display==="block"?"none":"block";
+const el = document.getElementById(id);
+el.style.display = el.style.display === "block" ? "none" : "block";
 }
 
 function sendJournal(){
-const email=document.getElementById("journalEmail").value;
-const text=document.getElementById("journalText").value;
-window.location.href=`mailto:${email}?subject=My Prophetic Journal&body=${encodeURIComponent(text)}`;
+const email = document.getElementById("journalEmail").value;
+const text = document.getElementById("journalText").value;
+window.location.href = `mailto:${email}?subject=My Prophetic Journal&body=${encodeURIComponent(text)}`;
 }
 </script>
 
